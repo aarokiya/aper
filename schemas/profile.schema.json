@@ -1,0 +1,696 @@
+{
+  "$id": "https://github.com/aarokiya/aper/blob/main/schemas/profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "student": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "major": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "threads": {
+          "maxItems": 6,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        "minors": {
+          "maxItems": 6,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        "classStanding": {
+          "type": "string",
+          "enum": [
+            "first-year",
+            "second-year",
+            "third-year",
+            "fourth-year",
+            "fifth-year-plus",
+            "graduate"
+          ]
+        },
+        "catalogYear": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{4}$"
+        },
+        "timeZone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      },
+      "additionalProperties": false
+    },
+    "appearance": {
+      "type": "object",
+      "properties": {
+        "theme": {
+          "default": "system",
+          "type": "string",
+          "enum": [
+            "system",
+            "light",
+            "dark"
+          ]
+        },
+        "accent": {
+          "default": "ink",
+          "type": "string",
+          "maxLength": 24
+        },
+        "customAccent": {
+          "default": "#2F55D4",
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "fonts": {
+          "default": {
+            "display": "stix",
+            "body": "plex-sans",
+            "mono": "plex-mono"
+          },
+          "type": "object",
+          "properties": {
+            "display": {
+              "default": "stix",
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^(custom:[a-z0-9-]+|[a-z0-9-]+)$"
+            },
+            "body": {
+              "default": "plex-sans",
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^(custom:[a-z0-9-]+|[a-z0-9-]+)$"
+            },
+            "mono": {
+              "default": "plex-mono",
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^(custom:[a-z0-9-]+|[a-z0-9-]+)$"
+            }
+          }
+        },
+        "textScale": {
+          "default": 1,
+          "type": "number",
+          "minimum": 0.85,
+          "maximum": 1.25
+        },
+        "greeting": {
+          "default": {
+            "name": "",
+            "clock": "12h",
+            "seconds": false,
+            "message": ""
+          },
+          "type": "object",
+          "properties": {
+            "name": {
+              "default": "",
+              "type": "string",
+              "maxLength": 40
+            },
+            "clock": {
+              "default": "12h",
+              "type": "string",
+              "enum": [
+                "off",
+                "12h",
+                "24h"
+              ]
+            },
+            "seconds": {
+              "default": false,
+              "type": "boolean"
+            },
+            "message": {
+              "default": "",
+              "type": "string",
+              "maxLength": 160
+            }
+          }
+        },
+        "background": {
+          "default": {
+            "kind": "scene",
+            "scene": "aurora",
+            "photos": [],
+            "photo": null,
+            "slideshow": false,
+            "interval": 90,
+            "dim": 0.32,
+            "blur": 0,
+            "motion": true,
+            "focus": {
+              "x": 50,
+              "y": 50
+            },
+            "height": 64
+          },
+          "type": "object",
+          "properties": {
+            "kind": {
+              "default": "scene",
+              "type": "string",
+              "enum": [
+                "scene",
+                "photo"
+              ]
+            },
+            "scene": {
+              "default": "aurora",
+              "type": "string",
+              "enum": [
+                "aurora",
+                "dusk",
+                "contours",
+                "constellation",
+                "paper"
+              ]
+            },
+            "photos": {
+              "default": [],
+              "maxItems": 40,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              }
+            },
+            "photo": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 64
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "slideshow": {
+              "default": false,
+              "type": "boolean"
+            },
+            "interval": {
+              "default": 90,
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 3600
+            },
+            "dim": {
+              "default": 0.32,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.9
+            },
+            "blur": {
+              "default": 0,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 30
+            },
+            "motion": {
+              "default": true,
+              "type": "boolean"
+            },
+            "focus": {
+              "default": {
+                "x": 50,
+                "y": 50
+              },
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ]
+            },
+            "height": {
+              "default": 64,
+              "type": "integer",
+              "minimum": 36,
+              "maximum": 100
+            }
+          }
+        },
+        "screensaver": {
+          "default": {
+            "enabled": true,
+            "idleMinutes": 10,
+            "showNext": true
+          },
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "default": true,
+              "type": "boolean"
+            },
+            "idleMinutes": {
+              "default": 10,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 120
+            },
+            "showNext": {
+              "default": true,
+              "type": "boolean"
+            }
+          }
+        },
+        "today": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "hidden": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "description": "Any subset of the appearance settings; merged onto what is saved."
+    },
+    "careers": {
+      "type": "object",
+      "properties": {
+        "interests": {
+          "maxItems": 30,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+          }
+        },
+        "excludes": {
+          "maxItems": 30,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "study": {
+      "type": "object",
+      "properties": {
+        "retention": {
+          "type": "number"
+        },
+        "maxInterval": {
+          "type": "number"
+        },
+        "learningSteps": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "relearningSteps": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "newPerDay": {
+          "type": "number"
+        },
+        "reviewsPerDay": {
+          "type": "number"
+        },
+        "dayStartsAt": {
+          "type": "number"
+        },
+        "newOrder": {
+          "default": "current-first",
+          "type": "string",
+          "enum": [
+            "current-first",
+            "oldest-first",
+            "random"
+          ]
+        },
+        "interleave": {
+          "default": true,
+          "type": "boolean"
+        },
+        "shuffleChoices": {
+          "default": true,
+          "type": "boolean"
+        },
+        "showIntervals": {
+          "default": true,
+          "type": "boolean"
+        },
+        "sources": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "card": {
+              "default": true,
+              "type": "boolean"
+            },
+            "quick": {
+              "default": true,
+              "type": "boolean"
+            },
+            "practice": {
+              "default": true,
+              "type": "boolean"
+            },
+            "parsons": {
+              "default": true,
+              "type": "boolean"
+            },
+            "mine": {
+              "default": true,
+              "type": "boolean"
+            }
+          }
+        },
+        "courses": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "maxLength": 64
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "review": {
+                "default": true,
+                "type": "boolean"
+              },
+              "notes": {
+                "default": "key",
+                "type": "string",
+                "enum": [
+                  "key",
+                  "full"
+                ]
+              },
+              "hiddenTabs": {
+                "default": [],
+                "maxItems": 40,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 64
+                }
+              },
+              "defaultTab": {
+                "default": null,
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 64
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sources": {
+                "type": "object",
+                "properties": {
+                  "card": {
+                    "type": "boolean"
+                  },
+                  "quick": {
+                    "type": "boolean"
+                  },
+                  "practice": {
+                    "type": "boolean"
+                  },
+                  "parsons": {
+                    "type": "boolean"
+                  },
+                  "mine": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "presets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cids": {
+                "default": [],
+                "maxItems": 50,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 64
+                }
+              },
+              "weeks": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "kinds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "card",
+                    "quick",
+                    "practice",
+                    "parsons",
+                    "mine"
+                  ]
+                }
+              },
+              "pick": {
+                "default": "due",
+                "type": "string",
+                "enum": [
+                  "due",
+                  "new",
+                  "weak",
+                  "all",
+                  "ahead"
+                ]
+              },
+              "aheadDays": {
+                "type": "number"
+              },
+              "limit": {
+                "type": "number"
+              },
+              "order": {
+                "default": "mixed",
+                "type": "string",
+                "enum": [
+                  "mixed",
+                  "week"
+                ]
+              },
+              "reschedule": {
+                "default": true,
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "timer": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "focus": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "long": {
+              "type": "number"
+            },
+            "longEvery": {
+              "type": "number"
+            },
+            "autoBreak": {
+              "default": false,
+              "type": "boolean"
+            },
+            "sound": {
+              "default": true,
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "description": "Any subset of the study preferences; merged onto what is saved."
+    },
+    "planner": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        }
+      ]
+    },
+    "studyHub": {
+      "type": "string",
+      "minLength": 1
+    },
+    "courses": {
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "alias": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "credits": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 12
+          },
+          "cutoffs": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            ],
+            "items": false,
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "syllabus": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200000
+          },
+          "studyZone": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "groqApiKey": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

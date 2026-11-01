@@ -1,0 +1,20 @@
+{
+  "id": "fixture-assignment-1",
+  "course_id": "fixture-course-1",
+  "name": "Pointers and malloc",
+  "description": "<h2>Requirements</h2><p>Implement <code>malloc</code> handling.</p><script>alert('not allowed')</script>",
+  "html_url": "https://gatech.instructure.com/courses/fixture-course-1/assignments/fixture-assignment-1",
+  "points_possible": 25,
+  "due_at": "2026-09-04T03:59:00Z",
+  "all_dates": [
+    { "base": true, "due_at": "2026-09-04T03:59:00Z" },
+    { "base": false, "title": "Student extension", "due_at": "2026-09-05T03:59:00Z" }
+  ],
+  "submission_types": ["online_upload"],
+  "submission": {
+    "workflow_state": "unsubmitted",
+    "missing": false,
+    "late": false,
+    "excused": false
+  }
+}

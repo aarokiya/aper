@@ -1,0 +1,39 @@
+{
+  "$schema": "./schemas/profile.schema.json",
+  "student": {
+    "name": "Alex Rivera",
+    "major": "BS Industrial Engineering",
+    "threads": ["Operations Research"],
+    "minors": ["Computing and Intelligence"],
+    "classStanding": "second-year",
+    "catalogYear": "2025-2026",
+    "timeZone": "America/New_York"
+  },
+  "appearance": {
+    "theme": "system",
+    "accent": "ink",
+    "greeting": { "clock": "12h", "message": "One thing at a time." }
+  },
+  "careers": {
+    "interests": ["industrial engineering", "supply chain", "operations research", "consulting", "data science"],
+    "excludes": ["PhD only", "senior"]
+  },
+  "study": {
+    "newPerDay": 20,
+    "dayStartsAt": 4,
+    "timer": { "focus": 30, "short": 5 }
+  },
+  "planner": "./examples/planner/plan.json",
+  "studyHub": "./examples/study-hub",
+  "courses": [
+    { "code": "ISYE 2027", "alias": "Probability", "credits": 3 },
+    { "code": "MATH 2551", "alias": "Calc III", "credits": 4 },
+    { "code": "PHYS 2211", "credits": 4, "cutoffs": [90, 80, 70, 60] },
+    {
+      "code": "ECON 2100",
+      "credits": 3,
+      "syllabus": "Course grade\nHomework 20% (lowest one dropped)\nQuizzes 15%\nMidterm Exams 40%\nFinal Exam 25%\nA: 90-100, B: 80-89.99, C: 70-79.99, D: 60-69.99, F: below 60"
+    },
+    { "code": "EXMP 1000", "studyZone": true }
+  ]
+}

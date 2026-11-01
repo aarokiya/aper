@@ -1,0 +1,268 @@
+/* Daily review page, the course Flashcards hub, and the custom session builder. Scoped under .study. */
+
+/* ---------- daily review + hub review tab ---------- */
+.study .dr-tbl {
+  font-variant-numeric: tabular-nums;
+}
+.study .dr-tbl th[scope='row'] {
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.study .dr-tbl th[scope='row'] b {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+.study .dr-tbl th[scope='row'] span {
+  color: var(--ink-3);
+}
+.study .dr-tbl td:last-child:has(a) {
+  padding-right: 0;
+  text-align: right;
+}
+.study .dr-go {
+  margin: 1rem 0 0.5rem;
+}
+.study .dr-done {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.study .dr-done b {
+  color: var(--good);
+  font-weight: 500;
+}
+.study .dr-note {
+  max-width: 60ch;
+  margin: 0.75rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+}
+.study .dr-sub {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.study .fh .sheet > .tbl-wrap:first-child {
+  margin-top: 0;
+}
+
+/* ---------- presets ---------- */
+.study .presets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.study .presets li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 1rem;
+  align-items: center;
+  padding: 0.625rem 0;
+  border-top: 1px solid var(--rule);
+}
+.study .presets li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.study .presets .pr-t {
+  display: flex;
+  flex: 1 1 16rem;
+  flex-direction: column;
+  min-width: 0;
+}
+.study .presets .pr-t b {
+  font-size: 0.90625rem;
+  font-weight: 500;
+}
+.study .presets .pr-t span {
+  color: var(--ink-3);
+  font-size: 0.78125rem;
+}
+.study .presets .pr-n {
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- session builder ---------- */
+.study .sb {
+  border-top: 1px solid var(--rule);
+}
+.study .sb fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.study .sb legend,
+.study .sb-field > span,
+.study .sb-range label > span {
+  margin-bottom: 0.375rem;
+  padding: 0;
+  color: var(--ink-3);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.study .sb-row {
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.study .sb-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  align-items: flex-start;
+}
+.study .sb-field {
+  display: flex;
+  flex-direction: column;
+}
+.study .sb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+.study .sb-chips label {
+  position: relative;
+  cursor: pointer;
+}
+.study .sb-chips input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.study .sb-chips span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--rule-2);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+.study .sb-chips label:hover span {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.study .sb-chips input:checked + span {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.study .sb-chips input:focus-visible + span {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+.study .sb-range {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+.study .sb-range label {
+  display: flex;
+  flex-direction: column;
+}
+.study .sb select,
+.study .sb input[type='number'],
+.study .sb input[type='text'] {
+  min-height: 1.875rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--rule-2);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+}
+.study .sb select:focus-visible,
+.study .sb input[type='number']:focus-visible,
+.study .sb input[type='text']:focus-visible {
+  border-color: var(--ink);
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 1px;
+}
+.study .sb-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.625rem;
+}
+.study .sb-quick .pill[aria-pressed='true'] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.study .sb-note {
+  margin: 0.5rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.78125rem;
+}
+.study .sb-inline input[type='number'] {
+  width: 4rem;
+  min-height: 1.5rem;
+  padding: 0.125rem 0.375rem;
+}
+.study .sb-check {
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.study .sb-check input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.1875rem 0 0;
+  accent-color: var(--ink);
+}
+.study .sb-check input:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+.study .sb-check span {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+}
+.study .sb-check small {
+  color: var(--ink-3);
+  font-size: 0.78125rem;
+}
+.study .sb-go {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.study .sb-size {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+.study .sb-size b {
+  color: var(--ink);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.study .sb-save {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--rule);
+}
+.study .sb-save input[type='text'] {
+  flex: 0 1 16rem;
+  min-width: 10rem;
+}
+.study .sb-save .sb-note {
+  margin: 0;
+}

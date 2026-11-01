@@ -1,0 +1,54 @@
+# dependencies/build
+node_modules/
+.pnpm-store/
+.vinext/
+.next/
+dist/
+.wrangler/
+coverage/
+.vercel/
+
+# local academic data
+data/*.db*
+data/raw/**
+data/normalized/**
+data/documents/**
+data/downloads/**
+data/debug/**
+data/backups/**
+data/.runtime/**
+data/e2e/**
+data/study/**
+data/appearance/**
+!data/raw/.gitkeep
+!data/normalized/.gitkeep
+!data/documents/.gitkeep
+!data/downloads/.gitkeep
+!data/debug/.gitkeep
+
+# databases/archives must never be committed from another location either
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.tar.gz
+*.tgz
+
+# credentials/profiles/secrets
+aper.profile.json
+.env*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+browser/
+
+# logs/editor/macOS
+*.log
+.DS_Store
+.idea/
+.vscode/
+*.tsbuildinfo
+test-results/
+playwright-report/

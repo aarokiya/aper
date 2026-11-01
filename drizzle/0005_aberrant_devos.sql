@@ -1,0 +1,1 @@
+ALTER TABLE `campus_events` DROP COLUMN `saved_at`;

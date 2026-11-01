@@ -1,0 +1,265 @@
+/* Backgrounds shared by Today's hero and the screensaver. */
+
+.ambient-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--paper);
+}
+
+.ambient-layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Scene base colors: what shows before the first frame and without WebGL. */
+.ambient-scene {
+  position: absolute;
+  inset: 0;
+  background: var(--scene-base);
+}
+.ambient-scene[data-scene='aurora'] {
+  --scene-base: #eef2f4;
+}
+.ambient-scene[data-scene='dusk'] {
+  --scene-base: #ecd9d6;
+}
+.ambient-scene[data-scene='contours'],
+.ambient-scene[data-scene='constellation'],
+.ambient-scene[data-scene='paper'] {
+  --scene-base: #ffffff;
+}
+.dark .ambient-scene[data-scene='aurora'] {
+  --scene-base: #040a10;
+}
+.dark .ambient-scene[data-scene='dusk'] {
+  --scene-base: #22172d;
+}
+.dark .ambient-scene[data-scene='contours'],
+.dark .ambient-scene[data-scene='paper'] {
+  --scene-base: #121212;
+}
+.dark .ambient-scene[data-scene='constellation'] {
+  --scene-base: #060912;
+}
+
+.ambient-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.9s ease-out;
+}
+.ambient-canvas[data-ready='true'] {
+  opacity: 1;
+}
+
+.ambient-photo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--fade, 2.2s) ease-in-out;
+}
+.ambient-photo[data-ready='true'] {
+  opacity: 1;
+}
+.ambient-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focus);
+  transform-origin: var(--focus);
+}
+.ambient-photo[data-motion='true'] img {
+  animation: ambient-drift var(--drift, 90s) ease-in-out infinite alternate;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.13) translate3d(-1.6%, -1.1%, 0);
+  }
+}
+.ambient-photo[data-paused='true'] img {
+  animation-play-state: paused;
+}
+
+.ambient-dim {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-photo[data-motion='true'] img {
+    animation: none;
+    transform: scale(1.04);
+  }
+}
+
+.ambient-clock {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.ambient-clock-seconds {
+  font-size: 0.62em;
+  opacity: 0.7;
+}
+.ambient-clock-period {
+  margin-left: 0.28em;
+  font-family: var(--font-body);
+  font-size: max(0.3em, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+
+/* ---------- screensaver ---------- */
+
+.screensaver {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  color: var(--ink);
+  cursor: none;
+  outline: none;
+  animation: screensaver-in 1.4s ease-out both;
+}
+.screensaver[data-phase='leaving'] {
+  pointer-events: none;
+  animation: screensaver-out 0.45s ease-in both;
+}
+.screensaver[data-tone='dark'] {
+  color: #fff;
+}
+.screensaver[data-tone='light'] {
+  color: #141414;
+}
+
+@keyframes screensaver-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes screensaver-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.screensaver-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top right,
+    rgb(0 0 0 / 0.5),
+    rgb(0 0 0 / 0.12) 55%,
+    transparent 80%
+  );
+}
+.screensaver[data-tone='light'] .screensaver-scrim {
+  background: linear-gradient(
+    to top right,
+    rgb(255 255 255 / 0.6),
+    rgb(255 255 255 / 0.15) 55%,
+    transparent 80%
+  );
+}
+.screensaver[data-tone='theme'] .screensaver-scrim {
+  background: linear-gradient(
+    to top right,
+    color-mix(in srgb, var(--paper) 55%, transparent),
+    transparent 70%
+  );
+}
+
+.screensaver-face {
+  position: absolute;
+  left: max(6vw, 1.5rem);
+  bottom: max(10vh, 2rem);
+  max-width: min(88vw, 64rem);
+  transition: transform 40s ease-in-out;
+  will-change: transform;
+}
+
+.screensaver-date {
+  font-size: clamp(0.9375rem, 1.3vw, 1.25rem);
+  opacity: 0.8;
+}
+
+.screensaver-clock {
+  display: flex;
+  margin: 0.05em 0 0 -0.04em;
+  font-size: clamp(5rem, 19vw, 17rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.screensaver-greeting {
+  margin-top: 0.35em;
+  font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  opacity: 0.92;
+}
+
+.screensaver-next {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: clamp(1.25rem, 4vh, 2.5rem);
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  max-width: 40rem;
+  animation: screensaver-in 1.2s ease-out both;
+}
+.screensaver-next > div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+}
+.screensaver-next dt {
+  font-size: 0.8125rem;
+  opacity: 0.7;
+}
+.screensaver-next dd {
+  display: flex;
+  flex-direction: column;
+}
+.screensaver-next-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
+  line-height: 1.3;
+}
+.screensaver-next-meta {
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .screensaver-next > div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+.screensaver-clock .ambient-clock-period {
+  margin-left: 0.45em;
+  font-size: max(0.15em, 0.875rem);
+  letter-spacing: 0.04em;
+}

@@ -1,0 +1,122 @@
+{
+  "program": "BS Fixture Science, threads: Alpha and Beta",
+  "catalog": "2026-27",
+  "audit": "2026-08-01",
+  "pairs": [
+    ["EAS 1600", "EAS 1601"],
+    ["BIOS 1107", "BIOS 1108"]
+  ],
+  "areas": [
+    {
+      "h": "Core",
+      "reqs": [
+        {
+          "id": "wellness",
+          "label": "Wellness",
+          "opts": ["APPH 1040", "APPH 1050"],
+          "keys": ["wellness"],
+          "name": "APPH 1040 Wellness",
+          "h": 2
+        },
+        {
+          "id": "polsci",
+          "label": "Political Science and U.S. History",
+          "opts": ["POL 1101", "HIST 2111", "HIST 2112"],
+          "h": 3
+        },
+        {
+          "id": "socsci",
+          "label": "Social Sciences: 9 hours",
+          "opts": ["ECON 2100", "HIST 2111", "HIST 2112"],
+          "keys": ["social science"],
+          "hrs": 9,
+          "name": "Social Science Elective",
+          "h": 3
+        }
+      ]
+    },
+    {
+      "h": "Major",
+      "reqs": [
+        {
+          "id": "cs1332",
+          "label": "Data Structures: CS 1332",
+          "opts": ["CS 1332"],
+          "h": 3
+        },
+        {
+          "id": "approaches",
+          "label": "Approaches: two of CS 4641, 4644, 4650",
+          "opts": ["CS 4641", "CS 4644", "CS 4650"],
+          "keys": ["approaches"],
+          "n": 2,
+          "name": "Approaches Elective",
+          "h": 3
+        },
+        {
+          "id": "labseq",
+          "label": "Lab science sequence",
+          "seq": true,
+          "keys": ["lab science"],
+          "name": "Lab Science (see Note 1)",
+          "h": 4
+        }
+      ]
+    },
+    {
+      "h": "Georgia Legislative Requirements",
+      "share": true,
+      "by90": true,
+      "reqs": [
+        {
+          "id": "glr_history",
+          "label": "U.S. and Georgia history",
+          "opts": ["HIST 2111", "HIST 2112"],
+          "h": 3
+        }
+      ]
+    }
+  ],
+  "plan": {
+    "t": 1000,
+    "title": "Thread Plan - AY 2026-27",
+    "hours": 126,
+    "note": "Fixture plan.",
+    "name": "Fixture Student",
+    "date": "",
+    "by": "Fixture Advisor | advisor@example.edu",
+    "terms": [
+      {
+        "id": "F26",
+        "label": "Fall 2026",
+        "rows": [
+          { "n": "ECON 2100 Economic Analysis", "h": 3, "k": "IP" },
+          { "n": "ISYE 2027 Probability", "h": 3, "k": "IP" }
+        ]
+      },
+      {
+        "id": "S27",
+        "label": "Spring 2027",
+        "rows": [
+          { "n": "CS 1332 Data Structures", "h": 3, "k": "R" },
+          { "n": "HIST 2111 or 2112", "h": 3, "k": "R" }
+        ]
+      },
+      {
+        "id": "F27",
+        "label": "Fall 2027",
+        "rows": [
+          { "n": "APPH 1040 Wellness", "h": 2, "k": "ALT" },
+          { "n": "Approaches Elective", "h": 3, "k": "", "r": "approaches" }
+        ]
+      },
+      { "id": "S28", "label": "Spring 2028", "rows": [] }
+    ],
+    "xfer": [
+      { "n": "POL 1101 Government", "h": 3, "k": "T" },
+      { "n": "EAS 1600 Environmental Science", "h": 4, "k": "T" }
+    ],
+    "extra": [{ "n": "BIOS 1107/L Biology", "h": 4, "k": "T" }],
+    "notes": ["**Note 1:** Two lab sciences must be a sequence."]
+  }
+}

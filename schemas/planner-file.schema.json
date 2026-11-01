@@ -1,0 +1,333 @@
+{
+  "$id": "https://github.com/aarokiya/aper/blob/main/schemas/planner-file.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "program": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "catalog": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "audit": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "pairs": {
+      "default": [],
+      "maxItems": 60,
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "items": false,
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "areas": {
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "h": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "share": {
+            "type": "boolean"
+          },
+          "by90": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 400
+          },
+          "reqs": {
+            "minItems": 1,
+            "maxItems": 40,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_]+$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "opts": {
+                  "default": [],
+                  "maxItems": 40,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 20
+                  }
+                },
+                "keys": {
+                  "default": [],
+                  "maxItems": 10,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 60
+                  }
+                },
+                "n": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 10
+                },
+                "hrs": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 60
+                },
+                "seq": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                "h": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 30
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 400
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ]
+            }
+          }
+        },
+        "required": [
+          "h",
+          "reqs"
+        ]
+      }
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "t": {
+          "type": "number",
+          "minimum": 0
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "hours": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "date": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "by": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "terms": {
+          "minItems": 1,
+          "maxItems": 24,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^([SUF])(\\d\\d)$"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "rows": {
+                "maxItems": 40,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "n": {
+                      "type": "string",
+                      "maxLength": 200
+                    },
+                    "h": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 30
+                    },
+                    "k": {
+                      "default": "",
+                      "type": "string",
+                      "enum": [
+                        "",
+                        "R",
+                        "ALT",
+                        "IP",
+                        "C",
+                        "T"
+                      ]
+                    },
+                    "r": {
+                      "type": "string",
+                      "maxLength": 40
+                    }
+                  },
+                  "required": [
+                    "n",
+                    "h"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "rows"
+            ]
+          }
+        },
+        "xfer": {
+          "maxItems": 80,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30
+              },
+              "k": {
+                "default": "",
+                "type": "string",
+                "enum": [
+                  "",
+                  "R",
+                  "ALT",
+                  "IP",
+                  "C",
+                  "T"
+                ]
+              },
+              "r": {
+                "type": "string",
+                "maxLength": 40
+              }
+            },
+            "required": [
+              "n",
+              "h"
+            ]
+          }
+        },
+        "extra": {
+          "maxItems": 80,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30
+              },
+              "k": {
+                "default": "",
+                "type": "string",
+                "enum": [
+                  "",
+                  "R",
+                  "ALT",
+                  "IP",
+                  "C",
+                  "T"
+                ]
+              },
+              "r": {
+                "type": "string",
+                "maxLength": 40
+              }
+            },
+            "required": [
+              "n",
+              "h"
+            ]
+          }
+        },
+        "notes": {
+          "maxItems": 60,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      },
+      "required": [
+        "t",
+        "title",
+        "hours",
+        "note",
+        "name",
+        "date",
+        "by",
+        "terms",
+        "xfer",
+        "extra",
+        "notes"
+      ]
+    }
+  },
+  "required": [
+    "program",
+    "catalog",
+    "audit",
+    "areas",
+    "plan"
+  ]
+}

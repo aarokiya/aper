@@ -1,0 +1,226 @@
+/* Today: the cinematic hero and the artifact-style body below it. */
+
+.today-hero {
+  --hero-wash: var(--paper);
+  position: relative;
+  display: flex;
+  min-height: clamp(24rem, var(--hero-h, 64vh), 100svh);
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+}
+.today-hero[data-tone='dark'] {
+  --hero-wash: #000;
+  color: #fff;
+}
+.today-hero[data-tone='light'] {
+  --hero-wash: #fff;
+  color: #141414;
+}
+
+/* Soft, functional scrim: darkens (or lightens) only where the type sits. */
+.today-hero-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--hero-wash) 34%, transparent),
+      transparent 28%
+    ),
+    linear-gradient(
+      to top,
+      color-mix(in srgb, var(--hero-wash) 62%, transparent),
+      color-mix(in srgb, var(--hero-wash) 18%, transparent) 50%,
+      transparent 78%
+    );
+}
+.today-hero[data-tone='theme'] .today-hero-scrim {
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--paper) 72%, transparent),
+    transparent 62%
+  );
+}
+
+.today-hero-inner {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1292px;
+  padding: 1.5rem 1.25rem 2.25rem;
+}
+@media (min-width: 640px) {
+  .today-hero-inner {
+    padding: 1.75rem 2.5rem 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .today-hero-inner {
+    padding: 2.25rem 3.5rem 3.75rem;
+  }
+}
+
+.today-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+.today-dateline {
+  font-size: 0.8125rem;
+  opacity: 0.82;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.875rem;
+  padding: 0.3125rem 0.875rem;
+  border: 1px solid color-mix(in srgb, currentColor 32%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--hero-wash) 30%, transparent);
+  color: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+.hero-pill:hover {
+  border-color: currentColor;
+  background: color-mix(in srgb, var(--hero-wash) 48%, transparent);
+}
+.hero-pill:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.hero-pill kbd {
+  font: inherit;
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+.today-hero-copy {
+  max-width: 62rem;
+}
+.today-hero-copy > * {
+  animation: today-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.today-hero-copy > :nth-child(2) {
+  animation-delay: 80ms;
+}
+.today-hero-copy > :nth-child(3) {
+  animation-delay: 180ms;
+}
+.today-hero-copy > :nth-child(4) {
+  animation-delay: 260ms;
+}
+
+@keyframes today-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.6rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.today-hero-clock {
+  display: flex;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.375rem, 1rem + 1.2vw, 2rem);
+  line-height: 1.1;
+  opacity: 0.9;
+}
+
+.today-greeting {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1.35rem + 5.4vw, 7rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.today-summary {
+  max-width: 52ch;
+  margin-top: 1.125rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.3125rem);
+  line-height: 1.45;
+  opacity: 0.92;
+}
+
+.today-message {
+  max-width: 60ch;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+/* ---------- body ---------- */
+
+.today-body {
+  max-width: 1292px;
+  padding: 2.5rem 1.25rem 6rem;
+}
+@media (min-width: 640px) {
+  .today-body {
+    padding: 2.75rem 2.5rem 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .today-body {
+    padding: 3rem 3.5rem 6rem;
+  }
+}
+
+.today-task[data-leaving='true'] {
+  opacity: 0;
+  transform: translate3d(0.75rem, 0, 0);
+  transition:
+    opacity 0.26s ease-in,
+    transform 0.26s ease-in;
+}
+
+.today-check {
+  display: grid;
+  place-items: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 1px solid var(--rule-2);
+  border-radius: 999px;
+  color: transparent;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+.today-check:hover,
+.today-check:focus-visible {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.today-check:active {
+  background: var(--ink);
+  color: var(--paper);
+}
+.today-check:disabled {
+  cursor: default;
+  opacity: 0.5;
+}

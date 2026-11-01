@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788152629846,
+      "tag": "0000_square_lake",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788201373752,
+      "tag": "0001_happy_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1788225095311,
+      "tag": "0002_yellow_pestilence",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1790892339909,
+      "tag": "0003_handshake_careers",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1790961299934,
+      "tag": "0004_sleepy_saracen",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1790974906109,
+      "tag": "0005_aberrant_devos",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "program": "BS Industrial Engineering (example), concentration: Operations Research",
+  "catalog": "2025-26",
+  "audit": "2026-10-15",
+  "pairs": [
+    ["PHYS 2211", "PHYS 2212"],
+    ["CHEM 1310", "PHYS 2211"],
+    ["BIOS 1107", "BIOS 1108"],
+    ["EAS 1600", "EAS 1601"]
+  ],
+  "areas": [
+    {
+      "h": "Core IMPACTS",
+      "reqs": [
+        {
+          "id": "english",
+          "label": "English Composition: ENGL 1101 and 1102",
+          "opts": ["ENGL 1101", "ENGL 1102"],
+          "n": 2,
+          "name": "ENGL 1102 English Composition II",
+          "h": 3
+        },
+        {
+          "id": "math",
+          "label": "Calculus: MATH 1551, 1552, and 2551",
+          "opts": ["MATH 1551", "MATH 1552", "MATH 2551"],
+          "n": 3,
+          "name": "MATH 2551 Multivariable Calculus",
+          "h": 4
+        },
+        {
+          "id": "linalg",
+          "label": "Linear Algebra: MATH 1554",
+          "opts": ["MATH 1554"],
+          "name": "MATH 1554 Linear Algebra",
+          "h": 4
+        },
+        {
+          "id": "labseq",
+          "label": "Lab science sequence (see Note 1)",
+          "seq": true,
+          "keys": ["lab science"],
+          "name": "Lab Science (see Note 1)",
+          "h": 4
+        },
+        {
+          "id": "humanities",
+          "label": "Humanities: 6 hours",
+          "opts": ["PHIL 3109", "LMC 3403"],
+          "keys": ["humanities"],
+          "hrs": 6,
+          "name": "Humanities Elective",
+          "h": 3
+        },
+        {
+          "id": "socsci",
+          "label": "Social Sciences: 9 hours",
+          "opts": [
+            "ECON 2100",
+            "PSYC 1101",
+            "HIST 2111",
+            "HIST 2112",
+            "POL 1101"
+          ],
+          "keys": ["social science"],
+          "hrs": 9,
+          "name": "Social Science Elective",
+          "h": 3
+        },
+        {
+          "id": "wellness",
+          "label": "Wellness: APPH 1040 or 1050",
+          "opts": ["APPH 1040", "APPH 1050"],
+          "keys": ["wellness"],
+          "name": "APPH 1040 Wellness",
+          "h": 2
+        },
+        {
+          "id": "computing",
+          "label": "Computing: CS 1301 or 1371",
+          "opts": ["CS 1301", "CS 1371"],
+          "name": "CS 1301 Intro to Computing",
+          "h": 3
+        }
+      ]
+    },
+    {
+      "h": "Major requirements",
+      "reqs": [
+        {
+          "id": "isye_prob",
+          "label": "Probability and statistics: ISYE 2027 and 2028",
+          "opts": ["ISYE 2027", "ISYE 2028"],
+          "n": 2,
+          "name": "ISYE 2028 Basic Statistical Methods",
+          "h": 3
+        },
+        {
+          "id": "isye_opt",
+          "label": "Optimization: ISYE 3133",
+          "opts": ["ISYE 3133"],
+          "name": "ISYE 3133 Engineering Optimization",
+          "h": 3
+        },
+        {
+          "id": "isye_stoch",
+          "label": "Stochastic manufacturing and service systems: ISYE 3232",
+          "opts": ["ISYE 3232"],
+          "name": "ISYE 3232 Stochastic Mfg & Service Systems",
+          "h": 3
+        },
+        {
+          "id": "isye_sim",
+          "label": "Simulation: ISYE 3044",
+          "opts": ["ISYE 3044"],
+          "name": "ISYE 3044 Simulation Analysis & Design",
+          "h": 3
+        },
+        {
+          "id": "isye_design",
+          "label": "Senior design: ISYE 4106",
+          "opts": ["ISYE 4106"],
+          "name": "ISYE 4106 Senior Design",
+          "h": 3,
+          "note": "Take in your final year."
+        }
+      ]
+    },
+    {
+      "h": "Concentration: Operations Research",
+      "reqs": [
+        {
+          "id": "or_electives",
+          "label": "Two of ISYE 4133, 4232, 4803",
+          "opts": ["ISYE 4133", "ISYE 4232", "ISYE 4803"],
+          "keys": ["concentration elective"],
+          "n": 2,
+          "name": "Concentration Elective",
+          "h": 3
+        }
+      ]
+    },
+    {
+      "h": "Georgia Legislative Requirements",
+      "share": true,
+      "by90": true,
+      "note": "Must be met before you reach 90 hours.",
+      "reqs": [
+        {
+          "id": "glr_history",
+          "label": "U.S. and Georgia history: HIST 2111 or 2112",
+          "opts": ["HIST 2111", "HIST 2112"],
+          "h": 3
+        },
+        {
+          "id": "glr_constitution",
+          "label": "U.S. and Georgia constitution: POL 1101",
+          "opts": ["POL 1101"],
+          "h": 3
+        }
+      ]
+    }
+  ],
+  "plan": {
+    "t": 1000,
+    "title": "Course Plan - BS Industrial Engineering",
+    "hours": 128,
+    "note": "Example plan for a fictional student. Not academic advice.",
+    "name": "Example Student",
+    "date": "",
+    "by": "Example Advisor | advisor@example.edu",
+    "terms": [
+      {
+        "id": "F25",
+        "label": "Fall 2025",
+        "rows": [
+          { "n": "MATH 1552 Integral Calculus", "h": 4, "k": "C" },
+          { "n": "CS 1301 Intro to Computing", "h": 3, "k": "C" },
+          { "n": "ENGL 1102 English Composition II", "h": 3, "k": "C" },
+          { "n": "CHEM 1310 General Chemistry", "h": 4, "k": "C" },
+          { "n": "APPH 1040 Wellness", "h": 2, "k": "C" }
+        ]
+      },
+      {
+        "id": "S26",
+        "label": "Spring 2026",
+        "rows": [
+          { "n": "MATH 1554 Linear Algebra", "h": 4, "k": "C" },
+          { "n": "PHYS 2211 Physics I", "h": 4, "k": "C" },
+          { "n": "ECON 2100 Economic Analysis", "h": 3, "k": "C" },
+          { "n": "ISYE 2027 Probability with Applications", "h": 3, "k": "C" }
+        ]
+      },
+      {
+        "id": "U26",
+        "label": "Summer 2026",
+        "rows": [
+          { "n": "HIST 2111 U.S. to 1877", "h": 3, "k": "C" },
+          { "n": "PHIL 3109 Engineering Ethics", "h": 3, "k": "C" }
+        ]
+      },
+      {
+        "id": "F26",
+        "label": "Fall 2026",
+        "rows": [
+          { "n": "MATH 2551 Multivariable Calculus", "h": 4, "k": "IP" },
+          { "n": "ISYE 2028 Basic Statistical Methods", "h": 3, "k": "IP" },
+          { "n": "PSYC 1101 General Psychology", "h": 3, "k": "IP" },
+          { "n": "Free Elective", "h": 3, "k": "IP" }
+        ]
+      },
+      {
+        "id": "S27",
+        "label": "Spring 2027",
+        "rows": [
+          { "n": "ISYE 3133 Engineering Optimization", "h": 3, "k": "R" },
+          {
+            "n": "ISYE 3232 Stochastic Mfg & Service Systems",
+            "h": 3,
+            "k": "R"
+          },
+          { "n": "Humanities Elective", "h": 3, "k": "R", "r": "humanities" },
+          { "n": "LMC 3403 Technical Communication", "h": 3, "k": "ALT" }
+        ]
+      },
+      {
+        "id": "U27",
+        "label": "Summer 2027",
+        "rows": [{ "n": "Internship (no credit)", "h": 0, "k": "" }]
+      },
+      {
+        "id": "F27",
+        "label": "Fall 2027",
+        "rows": [
+          { "n": "ISYE 3044 Simulation Analysis & Design", "h": 3, "k": "" },
+          {
+            "n": "Concentration Elective",
+            "h": 3,
+            "k": "",
+            "r": "or_electives"
+          },
+          { "n": "Free Elective", "h": 3, "k": "" }
+        ]
+      },
+      {
+        "id": "S28",
+        "label": "Spring 2028",
+        "rows": [
+          { "n": "ISYE 4133 Advanced Optimization", "h": 3, "k": "" },
+          { "n": "Free Elective", "h": 3, "k": "" }
+        ]
+      },
+      {
+        "id": "F28",
+        "label": "Fall 2028",
+        "rows": [{ "n": "ISYE 4106 Senior Design", "h": 3, "k": "" }]
+      },
+      { "id": "S29", "label": "Spring 2029", "rows": [] }
+    ],
+    "xfer": [
+      { "n": "MATH 1551 Differential Calculus", "h": 2, "k": "T" },
+      { "n": "ENGL 1101 English Composition I", "h": 3, "k": "T" },
+      { "n": "POL 1101 Government of the U.S.", "h": 3, "k": "T" }
+    ],
+    "extra": [{ "n": "CS 1100 Freshman Leap Seminar", "h": 1, "k": "T" }],
+    "notes": [
+      "**Note 1:** The two lab sciences must form an allowable sequence.",
+      "**Note 2:** This is an example file. Build your own from your Degree Works audit and the catalog: https://catalog.gatech.edu/"
+    ]
+  }
+}
